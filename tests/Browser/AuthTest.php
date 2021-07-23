@@ -13,7 +13,7 @@ class AuthTest extends DuskTestCase
      *
      * @return void
      */
-    public function testExample()
+    public function testUserRegistration()
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/')
@@ -22,7 +22,11 @@ class AuthTest extends DuskTestCase
                 ->value('#email', 'test@test.com')
                 ->value('#password', '00000000')
                 ->value('#password_confirmation', '00000000')
-                ->click('button[type="submit"]');
+                ->click('button[type="submit"]')
+                ->press('Test User');
+                    if ($browser->seeLink('Log Out')) {
+                        $browser->clickLink('Log Out');
+                    }
         });
     }
 }
