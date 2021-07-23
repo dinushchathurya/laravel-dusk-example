@@ -8,11 +8,6 @@ use Tests\DuskTestCase;
 
 class AuthTest extends DuskTestCase
 {
-    /**
-     * A Dusk test example.
-     *
-     * @return void
-     */
     public function testUserRegistration()
     {
         $this->browse(function (Browser $browser) {
