@@ -29,4 +29,19 @@ class AuthTest extends DuskTestCase
                     }
         });
     }
+
+    public function testUserLogin()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/')
+                ->clickLink('Log in')
+                ->value('#email', 'test@test.com')
+                ->value('#password', '00000000')
+                ->click('button[type="submit"]')
+                ->press('Test User');
+                    if ($browser->seeLink('Log Out')) {
+                        $browser->clickLink('Log Out');
+                    }
+        });
+    }
 }
